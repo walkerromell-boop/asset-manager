@@ -50,21 +50,39 @@ public class Vehicle extends Asset {
         double value = super.getOriginalCost();
         int currentYear = 2025;
         int carAge = currentYear - year;
+        double currentVaule = value;
+        if (value==0){currentVaule=20000;}
 
-        if (carAge <= 3) {
-            value -= value*(0.03 * carAge);
-        } else if (carAge <= 6) {
-            value -= value*(0.06 * carAge);
+            if (carAge <= 3) {
+                currentVaule -= value * (0.03 * carAge);
+            } else if (carAge <= 6) {
+                currentVaule -= value * (0.06 * carAge);
 
-        } else if (carAge <= 10) {
-            value -= value*(0.08 * carAge);
+            } else if (carAge <= 10) {
+                currentVaule -= value * (0.08 * carAge);
 
-        } else {
-            value = 1000.00;
-        }
+            } else {
+                currentVaule = 1000.00;
+            }
         if (odometer > 100000 && !(makeModel.contains("honda" + "toyota"))) {
-            value -= value * 0.25;
+            currentVaule -= value * 0.25;
         }
-        return value;
+        return Math.max(currentVaule, 0);
     }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "Vehicle: %s (%d)%nDescription: %s%nDate Acquired: %s%nOriginal Cost: $%,.2f%nOdometer: %,d miles%nEstimated Value: $%,.2f",
+                makeModel,
+                year,
+                getDescription(),
+                getDateAcquired(),
+                getOriginalCost(),
+                odometer,
+                getValue()
+        );
+    }
+
+
 }

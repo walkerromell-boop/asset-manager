@@ -71,4 +71,26 @@ public class House extends Asset {
         return (pricePerSquareFoot * squareFoot) + (0.25 * lotSize);
     }
 
+//    @Override
+//    public String toString() {
+//        return "House{" +
+//                "address='" + address + '\'' +
+//                ", condition=" + condition +
+//                ", squareFoot=" + squareFoot +
+//                ", lotSize=" + lotSize +
+//                '}';
+//    }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "House at %s (%s condition) - %,d sq ft, lot size %,d sq ft, Value: $%,.2f",
+                address,
+                getCondition(),
+                squareFoot,
+                lotSize,
+                getValue()
+        );
+    }
+
 }
