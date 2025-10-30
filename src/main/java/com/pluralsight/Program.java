@@ -23,7 +23,7 @@ public class Program {
             String message = "---------";
             if (asset instanceof House) {
                 House house = (House) asset;
-                message = "House at " + house.getAddress();
+                message = "House at " + house.getAddress()+ " vaule is estimated at  "+house.getValue()+ " the lot size is "+house.getLotSize()+"acres";
             }
             else if (asset instanceof Vehicle) {
                 Vehicle vehicle = (Vehicle) asset;

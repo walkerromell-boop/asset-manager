@@ -85,10 +85,10 @@ public class House extends Asset {
     public String toString() {
         return String.format(
                 "House at %s (%s condition) - %,d sq ft, lot size %,d sq ft, Value: $%,.2f",
-                address,
-                getCondition(),
-                squareFoot,
-                lotSize,
+                address,+
+                getCondition(),+
+                squareFoot,+
+                lotSize,+
                 getValue()
         );
     }
